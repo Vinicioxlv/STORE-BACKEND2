@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-//const productsRouter = require('./apis')
+const productsRouter = require('./apis')
 require('dotenv').config()
 require('./db/mongodb')
 
@@ -10,7 +10,7 @@ app.use(cors())
 app.use(express.json())
 const PUERTO = process.env.PORT || 5004
 
-//app.use(productsRouter)
+app.use(productsRouter)
 
 app.get('/', (req,res)=>{
  res.send('Servidor vivo')
